@@ -1,0 +1,6 @@
+kb.sqlite*
+.env
+credentials.json
+token.json
+kb.log
+__pycache__/

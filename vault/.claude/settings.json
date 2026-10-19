@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(/10 Sources/**)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(mv *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)",
+      "PowerShell(Remove-Item*)",
+      "PowerShell(Move-Item*)"
+    ],
+    "ask": [
+      "Edit(/20 Notes/**)"
+    ]
+  }
+}

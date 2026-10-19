@@ -1,0 +1,330 @@
+{
+ "nodes": [
+  {
+   "id": "g-sys",
+   "type": "group",
+   "x": -40,
+   "y": -80,
+   "width": 1500,
+   "height": 360,
+   "label": "How the second brain works",
+   "color": "5"
+  },
+  {
+   "id": "gmail",
+   "x": 0,
+   "y": -20,
+   "width": 260,
+   "height": 110,
+   "type": "text",
+   "text": "## Gmail\nread-only, every 6h",
+   "color": "4"
+  },
+  {
+   "id": "sessions",
+   "x": 0,
+   "y": 130,
+   "width": 260,
+   "height": 110,
+   "type": "text",
+   "text": "## Claude sessions\nkept past the 30-day purge",
+   "color": "4"
+  },
+  {
+   "id": "kb",
+   "x": 380,
+   "y": 40,
+   "width": 300,
+   "height": 160,
+   "type": "text",
+   "text": "## Knowledge base\n`~/kb`\nkeyword search over everything\n*memory of what happened*",
+   "color": "6"
+  },
+  {
+   "id": "claude",
+   "x": 780,
+   "y": 40,
+   "width": 280,
+   "height": 160,
+   "type": "text",
+   "text": "## Claude\n`kb-search` skill\n`/session-log` · `/weekly` · `/lint`",
+   "color": "2"
+  },
+  {
+   "id": "vault",
+   "x": 1140,
+   "y": -20,
+   "width": 280,
+   "height": 120,
+   "type": "text",
+   "text": "## This vault\n*what you think*\ngit → private GitHub",
+   "color": "3"
+  },
+  {
+   "id": "home",
+   "x": 1140,
+   "y": 130,
+   "width": 280,
+   "height": 110,
+   "type": "file",
+   "file": "Home.md"
+  },
+  {
+   "id": "me",
+   "x": 580,
+   "y": 360,
+   "width": 300,
+   "height": 110,
+   "type": "text",
+   "text": "# You\n*drag cards, add your own*",
+   "color": "5"
+  },
+  {
+   "id": "a0",
+   "type": "group",
+   "x": -40,
+   "y": 560,
+   "width": 340,
+   "height": 310,
+   "label": "Work",
+   "color": "1"
+  },
+  {
+   "id": "a0-h",
+   "x": -20,
+   "y": 580,
+   "width": 300,
+   "height": 60,
+   "type": "text",
+   "text": "### Work",
+   "color": "1"
+  },
+  {
+   "id": "a0-0",
+   "x": 0,
+   "y": 660,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Projects"
+  },
+  {
+   "id": "a0-1",
+   "x": 0,
+   "y": 730,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Meetings"
+  },
+  {
+   "id": "a0-2",
+   "x": 0,
+   "y": 800,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Decisions"
+  },
+  {
+   "id": "a1",
+   "type": "group",
+   "x": 340,
+   "y": 560,
+   "width": 340,
+   "height": 310,
+   "label": "Learning",
+   "color": "4"
+  },
+  {
+   "id": "a1-h",
+   "x": 360,
+   "y": 580,
+   "width": 300,
+   "height": 60,
+   "type": "text",
+   "text": "### Learning",
+   "color": "4"
+  },
+  {
+   "id": "a1-0",
+   "x": 380,
+   "y": 660,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Courses"
+  },
+  {
+   "id": "a1-1",
+   "x": 380,
+   "y": 730,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Books"
+  },
+  {
+   "id": "a1-2",
+   "x": 380,
+   "y": 800,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Ideas"
+  },
+  {
+   "id": "a2",
+   "type": "group",
+   "x": 720,
+   "y": 560,
+   "width": 340,
+   "height": 310,
+   "label": "Life",
+   "color": "2"
+  },
+  {
+   "id": "a2-h",
+   "x": 740,
+   "y": 580,
+   "width": 300,
+   "height": 60,
+   "type": "text",
+   "text": "### Life",
+   "color": "2"
+  },
+  {
+   "id": "a2-0",
+   "x": 760,
+   "y": 660,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Finances"
+  },
+  {
+   "id": "a2-1",
+   "x": 760,
+   "y": 730,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Health"
+  },
+  {
+   "id": "a2-2",
+   "x": 760,
+   "y": 800,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Goals"
+  },
+  {
+   "id": "a3",
+   "type": "group",
+   "x": 1100,
+   "y": 560,
+   "width": 340,
+   "height": 240,
+   "label": "Building",
+   "color": "6"
+  },
+  {
+   "id": "a3-h",
+   "x": 1120,
+   "y": 580,
+   "width": 300,
+   "height": 60,
+   "type": "text",
+   "text": "### Building",
+   "color": "6"
+  },
+  {
+   "id": "a3-0",
+   "x": 1140,
+   "y": 660,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Side projects"
+  },
+  {
+   "id": "a3-1",
+   "x": 1140,
+   "y": 730,
+   "width": 260,
+   "height": 55,
+   "type": "text",
+   "text": "Experiments"
+  }
+ ],
+ "edges": [
+  {
+   "id": "gmail-kb",
+   "fromNode": "gmail",
+   "fromSide": "right",
+   "toNode": "kb",
+   "toSide": "left"
+  },
+  {
+   "id": "sessions-kb",
+   "fromNode": "sessions",
+   "fromSide": "right",
+   "toNode": "kb",
+   "toSide": "left"
+  },
+  {
+   "id": "kb-claude",
+   "fromNode": "kb",
+   "fromSide": "right",
+   "toNode": "claude",
+   "toSide": "left",
+   "label": "search"
+  },
+  {
+   "id": "claude-vault",
+   "fromNode": "claude",
+   "fromSide": "right",
+   "toNode": "vault",
+   "toSide": "left",
+   "label": "writes only to 90 Agent Output"
+  },
+  {
+   "id": "vault-kb",
+   "fromNode": "vault",
+   "fromSide": "bottom",
+   "toNode": "kb",
+   "toSide": "bottom",
+   "label": "indexed (read-only)"
+  },
+  {
+   "id": "me-a0-h",
+   "fromNode": "me",
+   "fromSide": "bottom",
+   "toNode": "a0-h",
+   "toSide": "top"
+  },
+  {
+   "id": "me-a1-h",
+   "fromNode": "me",
+   "fromSide": "bottom",
+   "toNode": "a1-h",
+   "toSide": "top"
+  },
+  {
+   "id": "me-a2-h",
+   "fromNode": "me",
+   "fromSide": "bottom",
+   "toNode": "a2-h",
+   "toSide": "top"
+  },
+  {
+   "id": "me-a3-h",
+   "fromNode": "me",
+   "fromSide": "bottom",
+   "toNode": "a3-h",
+   "toSide": "top"
+  }
+ ]
+}
