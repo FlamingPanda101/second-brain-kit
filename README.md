@@ -24,6 +24,8 @@ AI agents forget everything between sessions, and Claude Code deletes its own se
 - **Secrets are masked** before anything is stored or summarized. Session transcripts often contain API keys.
 - **Email is data, never instructions.** The summarizer has no tools, and the agent is told to report any instructions it finds in your content, never to follow them. This blocks the main prompt-injection route.
 - **A fenced vault.** The AI can't edit `10 Sources`, must ask before changing `20 Notes`, and writes freely only in `90 Agent Output`. Permission rules enforce this; it doesn't rely on the AI following instructions.
+- **Backups run on a schedule, not inside Obsidian.** The Obsidian Git plugin only runs while Obsidian is open. In my own vault, that meant a week with no backups and no warning while Obsidian was closed. `vault/tools/backup.py` runs from Task Scheduler or cron every 30 minutes, and `/weekly` reports when it last succeeded. Because pushing is automatic and nobody reviews the diff, the script refuses to commit anything that looks like an API key.
+- **Failures get fixes, not just notes.** `90 Agent Output/Postmortems.md` records each caught failure as what happened, why, the fix now in place, and how you'd notice it again. This idea comes from [NaluKicks-808/second-brain-kit](https://github.com/NaluKicks-808/second-brain-kit): a failure that is only described will happen again.
 - **Rituals over automation.** `/session-log` at the end of a useful session, `/weekly` once a week, `/lint` once a month. The most common way these systems fail is that people stop maintaining them, so upkeep has to stay cheaper than the value.
 
 ## Install (about 15 minutes)
@@ -47,7 +49,7 @@ Claude follows [`SETUP.md`](SETUP.md) and asks before anything that needs a logi
 ## What's in the repo
 | Path | What it is |
 |---|---|
-| `vault/` | The Obsidian vault template: zones, house rules (`CLAUDE.md`), permission rules, `/weekly` and `/lint`, a Home hub, a canvas mind map, and graph colours |
+| `vault/` | The Obsidian vault template: zones, house rules (`CLAUDE.md`), permission rules, `/weekly` and `/lint`, `tools/backup.py`, a Postmortems note, a Home hub, a canvas mind map, and graph colours |
 | `kb/` | The knowledge base: `kb.py` (search, ingest, status, eval), `connectors.py` (vault, Claude sessions, Gmail) and `test_kb.py` |
 | `claude-skills/` | User-level skills: `kb-search` and `session-log` |
 | `SETUP.md` | Step-by-step install instructions, written so Claude Code can follow them |

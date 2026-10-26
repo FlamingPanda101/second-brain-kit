@@ -9,8 +9,8 @@ Keep both folders **outside** cloud-synced folders such as Google Drive, OneDriv
 ## 1. Vault
 1. Copy `vault/` to `~/SecondBrain`, including the hidden `.claude` and `.obsidian` folders and `.gitignore`.
 2. Run `git init -b main`, then `git add -A`, then `git commit -m "Initial vault"` inside it.
-3. Optional off-site backup: create a **private** repo and push to it, for example `gh repo create second-brain --private --source=. --push`. Ask first; it needs the user's GitHub login.
-4. In Obsidian: **Open folder as vault** → `~/SecondBrain` → **Trust**. Then go to **Settings → Community plugins → Turn on → Browse → "Git" (by Vinzent) → Install → Enable**. Under **Options → Automatic**, set **Auto commit-and-sync interval** to `30`.
+3. Optional off-site backup: create a **private** repo and push to it, for example `gh repo create second-brain --private --source=. --push`. Ask first; it needs the user's GitHub login. Section 4 then backs it up automatically.
+4. In Obsidian: **Open folder as vault** → `~/SecondBrain` → **Trust**. Optional: the "Git" community plugin (by Vinzent) adds a history view inside Obsidian. Don't rely on it for backups, because it only runs while Obsidian is open. The scheduled `tools/backup.py` in section 4 handles backups.
 5. Edit the **Areas** list in `Home.md` to match the user's life: their jobs, classes, projects.
 
 ## 2. Knowledge base
@@ -43,6 +43,18 @@ Use the full path to Python. Logs go to `~/kb/kb.log`.
   ```
 - **macOS / Linux** (cron): run `crontab -e` and add the line `0 */6 * * * python3 ~/kb/kb.py ingest`.
 
+**Vault backup, every 30 minutes.** `tools/backup.py` commits everything, pulls, and pushes. With no remote, it commits locally. It refuses to commit anything shaped like an API key or private key, and it writes one line per run to `.git/backup.log`. First run `python ~/SecondBrain/tools/backup.py --test`, which should print `ok`.
+
+- **Windows** (PowerShell):
+  ```powershell
+  $py = (Get-Command pythonw).Source
+  $a = New-ScheduledTaskAction -Execute $py -Argument "`"$HOME\SecondBrain\tools\backup.py`"" -WorkingDirectory "$HOME\SecondBrain"
+  $t = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 30)
+  $s = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
+  Register-ScheduledTask -TaskName "Second Brain vault backup" -Action $a -Trigger $t -Settings $s
+  ```
+- **macOS / Linux** (cron): add `*/30 * * * * python3 ~/SecondBrain/tools/backup.py`.
+
 ## 5. Optional extras (ask the user first)
 - **AI summaries** (Claude Haiku, usually under $1 for the first backfill): `pip install anthropic`, then put `ANTHROPIC_API_KEY=...` in `~/kb/.env` and run `python ~/kb/kb.py summarize`. It shows the cost and asks before spending anything.
 - **Gmail (read-only):** follow the "Connecting Gmail" steps in `kb/README.md`.
@@ -52,3 +64,4 @@ Use the full path to Python. Logs go to `~/kb/kb.log`.
 - [ ] Asking Claude "what did I work on last week?" from any folder triggers `kb-search`.
 - [ ] In a Claude session started in `~/SecondBrain`, asking it to create a file in `10 Sources` is **refused**.
 - [ ] Obsidian shows the vault, and `Second Brain Map` opens.
+- [ ] Within 30 minutes of setup, `.git/backup.log` in the vault ends with an `ok` line.
